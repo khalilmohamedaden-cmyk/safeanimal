@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
   <title>Sufi Animal Feed · Premium Livestock Nutrition</title>
-  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
@@ -34,6 +33,7 @@
     .section {
       padding: 5rem 0;
       position: relative;
+      scroll-margin-top: 90px;
     }
 
     .section-alt {
@@ -73,7 +73,6 @@
       transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
@@ -84,7 +83,6 @@
       transform: translateX(-30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
     .fade-in-left.visible {
       opacity: 1;
       transform: translateX(0);
@@ -95,7 +93,6 @@
       transform: translateX(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
     .fade-in-right.visible {
       opacity: 1;
       transform: translateX(0);
@@ -106,56 +103,47 @@
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
-    .stagger-children.visible>*:nth-child(1) {
-      transition-delay: 0.05s;
-    }
-    .stagger-children.visible>*:nth-child(2) {
-      transition-delay: 0.15s;
-    }
-    .stagger-children.visible>*:nth-child(3) {
-      transition-delay: 0.25s;
-    }
-    .stagger-children.visible>*:nth-child(4) {
-      transition-delay: 0.35s;
-    }
-
+    .stagger-children.visible>*:nth-child(1) { transition-delay: 0.05s; }
+    .stagger-children.visible>*:nth-child(2) { transition-delay: 0.15s; }
+    .stagger-children.visible>*:nth-child(3) { transition-delay: 0.25s; }
+    .stagger-children.visible>*:nth-child(4) { transition-delay: 0.35s; }
+    .stagger-children.visible>*:nth-child(5) { transition-delay: 0.45s; }
+    .stagger-children.visible>*:nth-child(6) { transition-delay: 0.55s; }
     .stagger-children.visible>* {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* ===== DYNAMIC ISLAND NAV ===== */
+    /* ===== DYNAMIC ISLAND NAV — CRISP, CLEAR, NO BLUR ===== */
     .dynamic-island-nav {
       position: fixed;
       top: 16px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 999;
-      background: rgba(22, 22, 26, 0.85);
-      backdrop-filter: blur(18px) saturate(1.2);
-      -webkit-backdrop-filter: blur(18px) saturate(1.2);
+      background: #1a1a1e;
       border-radius: 60px;
       padding: 0.4rem 0.6rem;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.04);
       display: flex;
       align-items: center;
       gap: 0.2rem;
       transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), padding 0.4s ease;
       width: auto;
       min-width: 52px;
+      max-width: 95vw;
       cursor: default;
       user-select: none;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      will-change: transform, width, padding;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     .dynamic-island-nav .brand {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: white;
-      font-weight: 700;
-      font-size: 1rem;
       padding: 0.2rem 0.4rem 0.2rem 0.8rem;
       white-space: nowrap;
       transition: opacity 0.3s;
@@ -167,16 +155,18 @@
       height: 36px;
       width: auto;
       border-radius: 8px;
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       display: block;
       object-fit: contain;
+      image-rendering: auto;
+      image-rendering: crisp-edges;
+      image-rendering: -webkit-optimize-contrast;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: transparent;
     }
 
-    /* ===== LOGO HOVER EFFECT (Chrome) ===== */
     .dynamic-island-nav .brand .logo-img:hover {
-      transform: scale(1.12) rotate(-3deg);
-      filter: drop-shadow(0 0 24px rgba(92, 214, 189, 0.5));
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform: scale(1.1) rotate(-3deg);
+      filter: drop-shadow(0 0 20px rgba(92, 214, 189, 0.35));
     }
 
     .dynamic-island-nav .nav-links {
@@ -212,8 +202,13 @@
     }
 
     .dynamic-island-nav .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.08);
       color: #ffffff;
+    }
+
+    .dynamic-island-nav .nav-links a.active {
+      background: rgba(92, 214, 189, 0.12);
+      color: #5cd6bd;
     }
 
     .dynamic-island-nav .actions {
@@ -230,13 +225,13 @@
     }
 
     .dynamic-island-nav.expanded .actions {
-      max-width: 300px;
+      max-width: 180px;
       opacity: 1;
       margin-left: 0.8rem;
       pointer-events: auto;
     }
 
-    .dynamic-island-nav .actions .btn-signup {
+    .dynamic-island-nav .actions .btn-call {
       background: #2b8c78;
       color: white;
       border: none;
@@ -247,33 +242,19 @@
       cursor: pointer;
       transition: 0.2s;
       white-space: nowrap;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
-    .dynamic-island-nav .actions .btn-signup:hover {
+    .dynamic-island-nav .actions .btn-call:hover {
       background: #3fa392;
       transform: scale(0.96);
     }
 
-    .dynamic-island-nav .actions .btn-login {
-      background: transparent;
-      color: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 500;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: 0.2s;
-      white-space: nowrap;
-    }
-
-    .dynamic-island-nav .actions .btn-login:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #ffffff;
-    }
-
     .dynamic-island-nav .toggle-icon {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.6);
       font-size: 1rem;
       padding: 0.2rem 0.6rem 0.2rem 0.3rem;
       transition: transform 0.4s ease;
@@ -319,7 +300,6 @@
       color: #1a5c51;
       border: 1px solid #1a5c51;
     }
-
     .btn-outline:hover {
       background: #1a5c51;
       color: white;
@@ -335,7 +315,6 @@
       text-decoration: none;
       transition: 0.2s;
     }
-
     .btn-white:hover {
       transform: scale(0.96);
       background: #f0f7f4;
@@ -351,13 +330,14 @@
       text-decoration: none;
       transition: 0.2s;
     }
-
     .btn-gold:hover {
       background: #c4973a;
       transform: scale(0.96);
     }
 
+    /* ======================================== */
     /* ===== HERO ===== */
+    /* ======================================== */
     .hero {
       padding: 1rem 0 4rem;
       background: linear-gradient(165deg, #e4f3ee 0%, #cde2db 100%);
@@ -430,7 +410,6 @@
       margin-bottom: 0.5rem;
       color: #1a5c51;
     }
-
     .hero-visual .tagline {
       font-weight: 700;
       color: #0a2a26;
@@ -443,18 +422,15 @@
       margin-top: 1.5rem;
       flex-wrap: wrap;
     }
-
     .hero-stats .stat {
       font-weight: 600;
     }
-
     .hero-stats .stat .num {
       font-size: 1.8rem;
       font-weight: 800;
       color: #1a5c51;
     }
 
-    /* Floating decoration elements */
     .hero-float-1 {
       position: absolute;
       top: 10%;
@@ -487,7 +463,9 @@
       will-change: transform;
     }
 
-    /* ===== WHO WE ARE — Single Big Vertical Image ===== */
+    /* ======================================== */
+    /* ===== ABOUT US (WHO WE ARE) ===== */
+    /* ======================================== */
     .who-grid {
       display: flex;
       flex-wrap: wrap;
@@ -496,7 +474,7 @@
     }
 
     .who-content {
-      flex: 1.2;
+      flex: 1;
       min-width: 280px;
     }
 
@@ -505,7 +483,6 @@
       padding: 0;
       margin: 1.2rem 0;
     }
-
     .who-content ul li {
       padding: 0.5rem 0;
       display: flex;
@@ -514,18 +491,18 @@
       font-weight: 500;
       color: #1a3d38;
     }
-
     .who-content ul li i {
       color: #1a5c51;
       width: 1.8rem;
     }
 
     .who-image-wrap {
-      flex: 0 0 280px;
-      max-width: 320px;
+      flex: 1.2;
+      min-width: 320px;
+      max-width: 550px;
       border-radius: 32px;
       overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
       border: 1px solid #eaf1ed;
       transition: all 0.4s ease;
       background: #d4e3dd;
@@ -533,13 +510,13 @@
     }
 
     .who-image-wrap:hover {
-      transform: scale(1.02);
-      box-shadow: 0 16px 48px rgba(26, 92, 81, 0.12);
+      transform: scale(1.015);
+      box-shadow: 0 30px 80px rgba(26, 92, 81, 0.15);
     }
 
     .who-image-wrap img {
       width: 100%;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 3 / 4.5;
       object-fit: cover;
       display: block;
       transition: transform 0.6s ease;
@@ -549,7 +526,9 @@
       transform: scale(1.04);
     }
 
-    /* ===== SERVICES GRID ===== */
+    /* ======================================== */
+    /* ===== SERVICES ===== */
+    /* ======================================== */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -565,7 +544,6 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
       text-align: center;
     }
-
     .service-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(25, 70, 60, 0.08);
@@ -584,31 +562,29 @@
       color: #1a5c51;
       margin: 0 auto 1.2rem;
     }
-
     .service-card h3 {
       font-weight: 700;
       font-size: 1.25rem;
       color: #0b2f2d;
     }
-
     .service-card p {
       color: #2d4947;
       font-size: 0.95rem;
       margin: 0.5rem 0 1rem;
     }
-
     .service-card .read-more {
       color: #1a5c51;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.9rem;
     }
-
     .service-card .read-more:hover {
       text-decoration: underline;
     }
 
+    /* ======================================== */
     /* ===== HOW IT WORKS ===== */
+    /* ======================================== */
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -624,7 +600,6 @@
       border: 1px solid #eaf1ed;
       position: relative;
     }
-
     .step-card .step-num {
       background: #1a5c51;
       color: white;
@@ -637,18 +612,18 @@
       font-weight: 800;
       margin: 0 auto 1rem;
     }
-
     .step-card h4 {
       font-weight: 700;
       color: #0b2f2d;
     }
-
     .step-card p {
       color: #2d4947;
       font-size: 0.95rem;
     }
 
+    /* ======================================== */
     /* ===== WHY CHOOSE US ===== */
+    /* ======================================== */
     .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -662,7 +637,6 @@
       border: 1px solid #eaf1ed;
       text-align: center;
     }
-
     .why-card .icon-wrap {
       background: #e1f0ea;
       width: 64px;
@@ -675,13 +649,14 @@
       color: #1a5c51;
       margin: 0 auto 1rem;
     }
-
     .why-card h4 {
       font-weight: 700;
       color: #0b2f2d;
     }
 
+    /* ======================================== */
     /* ===== TESTIMONIALS ===== */
+    /* ======================================== */
     .testimonial-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -694,32 +669,30 @@
       padding: 2rem 1.8rem;
       border-left: 6px solid #2b8c78;
     }
-
     .testimonial .stars {
       color: #d4a745;
       letter-spacing: 2px;
       margin-bottom: 0.5rem;
     }
-
     .testimonial p {
       font-style: italic;
       color: #1a3d38;
       font-weight: 500;
     }
-
     .testimonial .author {
       margin-top: 1rem;
       font-weight: 700;
       color: #0b2f2d;
       font-style: normal;
     }
-
     .testimonial .author span {
       font-weight: 400;
       color: #3b5a55;
     }
 
+    /* ======================================== */
     /* ===== ENTERPRISE STRUCTURE ===== */
+    /* ======================================== */
     .org-chart {
       max-width: 900px;
       margin: 2rem auto 0;
@@ -736,14 +709,12 @@
       align-items: center;
       margin-bottom: 0.25rem;
     }
-
     .org-connector-line {
       width: 2px;
       height: 24px;
       background: #b6d4ca;
       margin: 0 auto;
     }
-
     .org-connector-line.horizontal {
       width: 100%;
       height: 2px;
@@ -764,13 +735,11 @@
       margin: 0.2rem 0;
       letter-spacing: 0.01em;
     }
-
     .org-node.deputy {
       background: #1f6b5e;
       padding: 0.5rem 1.8rem;
       font-size: 0.95rem;
     }
-
     .org-node.manager {
       background: #2b8c78;
       padding: 0.4rem 1.4rem;
@@ -785,7 +754,6 @@
       margin-top: 0.5rem;
       width: 100%;
     }
-
     .org-branch {
       display: flex;
       flex-direction: column;
@@ -793,18 +761,15 @@
       flex: 1;
       min-width: 160px;
     }
-
     .org-branch .org-node {
       margin-bottom: 0.6rem;
     }
-
     .org-children {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.6rem;
     }
-
     .org-children span {
       background: #f4f9f7;
       border: 1px solid #d4e3dd;
@@ -815,13 +780,14 @@
       color: #1a3d38;
       transition: 0.15s;
     }
-
     .org-children span:hover {
       background: #eaf3ef;
       border-color: #a3c4b9;
     }
 
+    /* ======================================== */
     /* ===== FAQ ===== */
+    /* ======================================== */
     .faq-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -836,7 +802,6 @@
       padding: 1.5rem 2rem;
       border: 1px solid #eaf1ed;
     }
-
     .faq-item .question {
       font-weight: 700;
       color: #0b2f2d;
@@ -844,27 +809,25 @@
       justify-content: space-between;
       cursor: pointer;
     }
-
     .faq-item .question i {
       color: #1a5c51;
       transition: 0.2s;
     }
-
     .faq-item .answer {
       margin-top: 0.8rem;
       color: #2d4947;
       display: none;
     }
-
     .faq-item.active .answer {
       display: block;
     }
-
     .faq-item.active .question i {
       transform: rotate(180deg);
     }
 
-    /* ===== CTA BANNER ===== */
+    /* ======================================== */
+    /* ===== CTA / CONTACT ===== */
+    /* ======================================== */
     .cta-banner {
       background: linear-gradient(135deg, #1a5c51, #11453c);
       border-radius: 50px;
@@ -875,19 +838,19 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .cta-banner h2 {
       font-size: 2.2rem;
       font-weight: 700;
     }
-
     .cta-banner p {
       opacity: 0.85;
       max-width: 450px;
       margin-top: 0.4rem;
     }
 
+    /* ======================================== */
     /* ===== FOOTER ===== */
+    /* ======================================== */
     .footer {
       padding: 3rem 0 1.5rem;
       border-top: 1px solid #dae8e4;
@@ -902,20 +865,17 @@
       gap: 2.5rem;
       margin-bottom: 2rem;
     }
-
     .footer-grid h4 {
       font-weight: 700;
       color: #0b2f2d;
       margin-bottom: 0.8rem;
     }
-
     .footer-grid a {
       color: #1f4944;
       text-decoration: none;
       display: block;
       padding: 0.2rem 0;
     }
-
     .footer-grid a:hover {
       color: #08312c;
       text-decoration: underline;
@@ -929,38 +889,46 @@
       border-top: 1px solid #dae8e4;
       padding-top: 1.5rem;
     }
-
     .social i {
       font-size: 1.4rem;
       margin-left: 0.8rem;
       color: #2f635b;
       transition: 0.2s;
     }
-
     .social i:hover {
       color: #0a3a33;
     }
 
+    /* ======================================== */
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .dynamic-island-nav .brand .brand-text {
-        display: none;
+    /* ======================================== */
+    @media (max-width: 992px) {
+      .who-image-wrap {
+        max-width: 450px;
+        min-width: 280px;
+        flex: 1;
       }
+    }
+
+    @media (max-width: 768px) {
       .dynamic-island-nav {
         top: 12px;
-        padding: 0.4rem 0.6rem;
-      }
-      .dynamic-island-nav .nav-links a {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.5rem;
-      }
-      .dynamic-island-nav .actions .btn-signup,
-      .dynamic-island-nav .actions .btn-login {
-        font-size: 0.65rem;
-        padding: 0.25rem 0.7rem;
+        padding: 0.35rem 0.5rem;
       }
       .dynamic-island-nav .brand .logo-img {
         height: 28px;
+      }
+      .dynamic-island-nav .nav-links a {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.4rem;
+      }
+      .dynamic-island-nav .actions .btn-call {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.7rem;
+      }
+      .dynamic-island-nav.expanded .actions {
+        max-width: 140px;
+        margin-left: 0.4rem;
       }
       .hero-content h1 {
         font-size: 2.6rem;
@@ -979,8 +947,8 @@
         align-items: center;
       }
       .who-image-wrap {
-        flex: 0 0 auto;
-        max-width: 280px;
+        max-width: 400px;
+        min-width: 250px;
         width: 100%;
       }
       .hero-stats {
@@ -1024,17 +992,20 @@
         height: 24px;
       }
       .dynamic-island-nav .toggle-icon {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         padding: 0 0.2rem;
       }
       .dynamic-island-nav .nav-links a {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.4rem;
+        font-size: 0.55rem;
+        padding: 0.2rem 0.3rem;
       }
-      .dynamic-island-nav .actions .btn-signup,
-      .dynamic-island-nav .actions .btn-login {
+      .dynamic-island-nav .actions .btn-call {
         font-size: 0.55rem;
         padding: 0.2rem 0.5rem;
+      }
+      .dynamic-island-nav.expanded .actions {
+        max-width: 120px;
+        margin-left: 0.2rem;
       }
       .footer-grid {
         grid-template-columns: 1fr;
@@ -1056,7 +1027,8 @@
         padding: 0.2rem 0.8rem;
       }
       .who-image-wrap {
-        max-width: 220px;
+        max-width: 300px;
+        min-width: 200px;
       }
     }
   </style>
@@ -1069,14 +1041,13 @@
       <img src="image5.jpeg" alt="Sufi Feed Logo" class="logo-img" id="logoImage" />
     </div>
     <div class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
+      <a href="#home" class="active">Home</a>
+      <a href="#aboutus">About Us</a>
       <a href="#services">Services</a>
-      <a href="#contact">Contact Us</a>
+      <a href="#contactus">Contact Us</a>
     </div>
     <div class="actions" id="actionButtons">
-      <button class="btn-login"><i class="fas fa-phone"></i> Call</button>
-      <button class="btn-signup"><i class="fas fa-search"></i> Search</button>
+      <a href="tel:0915746820" class="btn-call"><i class="fas fa-phone"></i> Call</a>
     </div>
     <div class="toggle-icon" id="navToggle">
       <i class="fas fa-chevron-down"></i>
@@ -1085,14 +1056,16 @@
 
   <div class="nav-spacer"></div>
 
-  <!-- ===== MAIN CONTENT ===== -->
+  <!-- ============================================================ -->
+  <!-- ===== FULL HOME PAGE – ALL SECTIONS IN ONE SCROLL ===== -->
+  <!-- ============================================================ -->
   <main>
 
-    <!-- HOME -->
-    <section class="hero" id="home">
-      <div class="hero-float-1" id="float1"><i class="fas fa-seedling"></i></div>
-      <div class="hero-float-2" id="float2"><i class="fas fa-cow"></i></div>
-      <div class="hero-float-3" id="float3"><i class="fas fa-leaf"></i></div>
+    <!-- ===== HOME / HERO ===== -->
+    <section id="home" class="hero">
+      <div class="hero-float-1"><i class="fas fa-seedling"></i></div>
+      <div class="hero-float-2"><i class="fas fa-cow"></i></div>
+      <div class="hero-float-3"><i class="fas fa-leaf"></i></div>
 
       <div class="container hero-grid">
         <div class="hero-content">
@@ -1100,8 +1073,8 @@
           <h1>Quality Feed for <span>Your Livestock</span></h1>
           <p>Discover the finest feed solutions tailored for all livestock species to enhance their health and productivity.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#services" class="btn"><i class="fas fa-arrow-right"></i> Get Started</a>
-            <a href="#about" class="btn btn-outline">Learn More</a>
+            <a href="#contactus" class="btn"><i class="fas fa-arrow-right"></i> Get Started</a>
+            <a href="#aboutus" class="btn btn-outline">Learn More</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><span class="num">10+</span> Years Experience</div>
@@ -1117,8 +1090,8 @@
       </div>
     </section>
 
-    <!-- ABOUT US — Single Big Vertical Image -->
-    <section id="about" class="section">
+    <!-- ===== ABOUT US ===== -->
+    <section id="aboutus" class="section">
       <div class="container">
         <div class="who-grid">
           <div class="who-content fade-in-left">
@@ -1140,7 +1113,7 @@
               <li><i class="fas fa-cube"></i> Densified complete feed block</li>
               <li><i class="fas fa-cube"></i> Medicated feed/nutrient blocks</li>
             </ul>
-            <a href="#" class="btn" style="margin-top: 1.2rem;">Read More</a>
+            <a href="#services" class="btn" style="margin-top: 1.2rem;">Read More</a>
           </div>
           <div class="who-image-wrap fade-in-right">
             <img src="image1.jpeg" alt="Feed production facility" />
@@ -1149,7 +1122,7 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- ===== SERVICES ===== -->
     <section id="services" class="section section-alt" style="padding: 4rem 0;">
       <div class="container">
         <div class="text-center fade-in">
@@ -1157,36 +1130,36 @@
           <h2 class="section-title">Comprehensive Feed Solutions for Livestock</h2>
           <p class="section-sub">Tailored nutrition for every animal on your farm.</p>
         </div>
-        <div class="services-grid stagger-children" id="servicesGrid">
+        <div class="services-grid stagger-children">
           <div class="service-card">
             <div class="icon-wrap"><i class="fas fa-seedling"></i></div>
             <h3>Livestock Feed</h3>
             <p>Tailored feed solutions for all livestock species.</p>
-            <a href="#" class="read-more">Read More →</a>
+            <a href="#contactus" class="read-more">Contact Us →</a>
           </div>
           <div class="service-card">
             <div class="icon-wrap"><i class="fas fa-drumstick-bite"></i></div>
             <h3>Poultry Nutrition</h3>
             <p>Specialized feeds for broilers and layers.</p>
-            <a href="#" class="read-more">Read More →</a>
+            <a href="#contactus" class="read-more">Contact Us →</a>
           </div>
           <div class="service-card">
             <div class="icon-wrap"><i class="fas fa-glass-whiskey"></i></div>
             <h3>Dairy Nutrition</h3>
             <p>Premium feeds for dairy camels and cattle.</p>
-            <a href="#" class="read-more">Read More →</a>
+            <a href="#contactus" class="read-more">Contact Us →</a>
           </div>
           <div class="service-card">
             <div class="icon-wrap"><i class="fas fa-cube"></i></div>
             <h3>Urea-molasses Multi-nutrient Block</h3>
             <p>High-energy blocks for ruminant animals.</p>
-            <a href="#" class="read-more">Read More →</a>
+            <a href="#contactus" class="read-more">Contact Us →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
+    <!-- ===== HOW IT WORKS ===== -->
     <section class="section">
       <div class="container">
         <div class="text-center fade-in">
@@ -1194,68 +1167,68 @@
           <h2 class="section-title">Efficient Process for Quality Feed</h2>
           <p class="section-sub">Learn how our services enhance livestock nutrition.</p>
         </div>
-        <div class="steps-grid stagger-children" id="stepsGrid">
+        <div class="steps-grid stagger-children">
           <div class="step-card">
             <div class="step-num">1</div>
             <h4>Assessment</h4>
-            <p>We evaluate your livestock’s specific nutritional needs for tailored feed solutions.</p>
+            <p>Our nutritionists visit your farm to analyse your livestock's current diet, health status, and production goals. We take samples and run lab tests to identify exactly what your animals need.</p>
           </div>
           <div class="step-card">
             <div class="step-num">2</div>
             <h4>Formulation</h4>
-            <p>Our expert formulators create customized feed mixes for optimal performance and health.</p>
+            <p>Using advanced feed formulation software and our team's expertise, we create a custom blend of proteins, carbohydrates, vitamins, and minerals tailored to your animals' specific requirements.</p>
           </div>
           <div class="step-card">
             <div class="step-num">3</div>
             <h4>Delivery</h4>
-            <p>Timely delivery of our high-quality feed ensures your livestock never miss a meal.</p>
+            <p>We produce your custom feed in our state-of-the-art facility and deliver it directly to your farm. Our logistics team ensures consistent, on-time supply so your livestock never miss a meal.</p>
           </div>
         </div>
         <div class="text-center" style="margin-top: 2.5rem;">
-          <a href="#" class="btn-gold"><i class="fas fa-rocket"></i> Elevate Your Livestock’s Health</a>
+          <a href="#contactus" class="btn-gold"><i class="fas fa-rocket"></i> Elevate Your Livestock's Health</a>
         </div>
       </div>
     </section>
 
-    <!-- WHY CHOOSE US -->
+    <!-- ===== WHY CHOOSE US ===== -->
     <section class="section section-alt" style="padding: 4rem 0;">
       <div class="container">
         <div class="text-center fade-in">
           <span class="badge">WHY CHOOSE US</span>
           <h2 class="section-title">Our Unique Value Propositions</h2>
         </div>
-        <div class="why-grid stagger-children" id="whyGrid">
+        <div class="why-grid stagger-children">
           <div class="why-card">
             <div class="icon-wrap"><i class="fas fa-flask"></i></div>
             <h4>Expert Formulation</h4>
-            <p>Our feed is crafted by nutritionists, ensuring it meets the specific needs of each livestock species for optimal growth and health.</p>
+            <p>Our feed is crafted by certified animal nutritionists with decades of experience. Each recipe is scientifically balanced to meet the specific needs of your livestock species for optimal growth and health.</p>
           </div>
           <div class="why-card">
             <div class="icon-wrap"><i class="fas fa-seedling"></i></div>
             <h4>Quality Ingredients</h4>
-            <p>We source the finest ingredients to produce high-quality feed that improves your livestock’s health and productivity.</p>
+            <p>We source only the finest ingredients from trusted suppliers. Every batch is tested for purity, nutritional value, and safety to ensure your livestock receive consistent, premium-quality feed.</p>
           </div>
           <div class="why-card">
             <div class="icon-wrap"><i class="fas fa-list-ul"></i></div>
             <h4>Comprehensive Range</h4>
-            <p>Our diverse product offerings cater to all livestock, from dairy and poultry to fishery feed, ensuring all needs are met.</p>
+            <p>From dairy cattle to poultry, from fattening animals to fish – we cover all livestock species. Our diverse product line includes concentrates, pellets, crumbles, TMR, and specialised nutrient blocks.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="section">
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section">
       <div class="container">
         <div class="text-center fade-in">
           <span class="badge">TESTIMONIALS</span>
           <h2 class="section-title">Hear From Our Satisfied Customers</h2>
           <p class="section-sub">What our clients say about our feed.</p>
         </div>
-        <div class="testimonial-grid stagger-children" id="testimonialGrid">
+        <div class="testimonial-grid stagger-children">
           <div class="testimonial">
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p>“I switched to Safe’s poultry feed, and my layers are producing more eggs than ever. Highly recommended!”</p>
+            <p>“I switched to Safe's poultry feed, and my layers are producing more eggs than ever. Highly recommended!”</p>
             <div class="author">Sufi Animal Feed <span>· Company</span></div>
           </div>
           <div class="testimonial">
@@ -1265,14 +1238,14 @@
           </div>
           <div class="testimonial">
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p>“I switched to Safe’s poultry feed, and my layers are producing more eggs than ever. Highly recommended!”</p>
-            <div class="author">Sufi Animal Feed <span>· Company</span></div>
+            <p>“The nutrient blocks have completely transformed our sheep farming. Healthier animals, better weight gain, and fewer vet visits.”</p>
+            <div class="author">Aisha Mohamed <span>· Sheep Farmer</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ENTERPRISE STRUCTURE -->
+    <!-- ===== ENTERPRISE STRUCTURE ===== -->
     <section class="section section-alt" style="padding: 4rem 0;">
       <div class="container">
         <div class="text-center fade-in">
@@ -1320,7 +1293,7 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- ===== FAQ ===== -->
     <section class="section">
       <div class="container">
         <div class="text-center fade-in">
@@ -1328,48 +1301,48 @@
           <h2 class="section-title">Frequently Asked Questions</h2>
           <p class="section-sub">Common inquiries answered.</p>
         </div>
-        <div class="faq-grid stagger-children" id="faqGrid">
+        <div class="faq-grid stagger-children">
           <div class="faq-item active">
             <div class="question" onclick="this.parentElement.classList.toggle('active')">
               What types of feed do you offer?
               <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="answer">We provide a variety of feeds including concentrates, pellets, and nutrient blocks. Our products cater to dairy, poultry, fattening animals, fish, and ruminants, ensuring balanced nutrition across all livestock species.</div>
+            <div class="answer">We offer a comprehensive range including concentrates, pellets, crumbles, and Total Mixed Ration (TMR). Our product line covers dairy animals, fattening cattle, poultry (layers & broilers), fishery feed, and ruminant nutrient blocks including Urea-molasses, mineral, and medicated blocks. Every product is scientifically formulated for optimal nutrition.</div>
           </div>
           <div class="faq-item">
             <div class="question" onclick="this.parentElement.classList.toggle('active')">
               Do you offer specialized poultry feeds?
               <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="answer">Yes, we offer tailored poultry feeds for both broilers and layers. Our range includes starter, grower, layer, and finisher feeds formulated to meet specific nutritional requirements.</div>
+            <div class="answer">Yes, we have a complete poultry nutrition line. Our range includes starter feed for chicks, grower feed for young birds, layer feed for egg production, and finisher feed for broilers. Each formulation is enriched with essential amino acids, vitamins, and minerals to support healthy growth, strong eggshells, and optimal meat production.</div>
           </div>
           <div class="faq-item">
             <div class="question" onclick="this.parentElement.classList.toggle('active')">
               What are the benefits of your dairy feeds?
               <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="answer">Our dairy feeds provide essential nutrients to enhance milk production and improve overall health in cattle and camels. We offer different grades including super and premium options for optimal performance.</div>
+            <div class="answer">Our dairy feeds are designed to maximize milk production and quality. They contain balanced energy, protein, calcium, and phosphorus levels to support high-yielding dairy cows. Benefits include improved milk yield, better butterfat content, healthier reproductive cycles, and stronger hooves. We offer super and premium grades for different production levels.</div>
           </div>
           <div class="faq-item">
             <div class="question" onclick="this.parentElement.classList.toggle('active')">
               Are your feeds suitable for all livestock species?
               <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="answer">Absolutely! Our feed formulations are designed to cater to various livestock species. We ensure each product meets the specific dietary needs of the animals, from poultry to ruminants.</div>
+            <div class="answer">Absolutely! Our formulations are specifically designed for different livestock species – cattle, sheep, goats, poultry, and fish. Each product is tailored to the unique digestive system and nutritional requirements of that species. We also offer custom formulations for mixed farming operations.</div>
           </div>
           <div class="faq-item">
             <div class="question" onclick="this.parentElement.classList.toggle('active')">
               Can I contact you for custom feed formulations?
               <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="answer">Yes, we welcome inquiries for custom feed formulations tailored to your specific needs. Please reach out, and our team will work with you to create the ideal feed solution.</div>
+            <div class="answer">Yes, we welcome custom feed formulation requests. Our team of nutritionists will work with you to understand your livestock's specific needs, production goals, and available ingredients. We'll create a bespoke feed blend that maximizes your animals' performance and profitability. Simply contact us through our form or give us a call.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT US -->
-    <section id="contact" style="padding: 2rem 0 4rem;">
+    <!-- ===== CONTACT US / CTA ===== -->
+    <section id="contactus" style="padding: 2rem 0 4rem;">
       <div class="container">
         <div class="cta-banner fade-in">
           <div>
@@ -1377,8 +1350,8 @@
             <p>Contact us today for premium feed solutions tailored to your animals' needs.</p>
           </div>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#" class="btn-white"><i class="fas fa-phone"></i> Call Now</a>
-            <a href="#" class="btn-white" style="background: #d4a745; color: #1a2e2b;"><i class="fas fa-envelope"></i> Email Us</a>
+            <a href="tel:0915746820" class="btn-white"><i class="fas fa-phone"></i> Call Now</a>
+            <a href="mailto:Info@safeanimal.com.et" class="btn-white" style="background: #d4a745; color: #1a2e2b;"><i class="fas fa-envelope"></i> Email Us</a>
           </div>
         </div>
       </div>
@@ -1403,13 +1376,13 @@
         <div>
           <h4>Quick Links</h4>
           <a href="#home">Home</a>
-          <a href="#about">About Us</a>
+          <a href="#aboutus">About Us</a>
           <a href="#services">Our Services</a>
-          <a href="#contact">Contact Us</a>
+          <a href="#contactus">Contact Us</a>
         </div>
         <div>
           <h4>Contact Info</h4>
-          <p><i class="fas fa-phone" style="color: #1a5c51;"></i> +251 915 115 800</p>
+          <p><i class="fas fa-phone" style="color: #1a5c51;"></i> 0915746820</p>
           <p><i class="fas fa-envelope" style="color: #1a5c51;"></i> Info@safeanimal.com.et</p>
           <p><i class="fas fa-map-marker-alt" style="color: #1a5c51;"></i> Jigjiga, Ethiopia</p>
         </div>
@@ -1431,28 +1404,41 @@
     (function() {
       'use strict';
 
-      // ===== DYNAMIC ISLAND (SCROLL UP/DOWN) =====
+      // ============================================================
+      // 1. DYNAMIC ISLAND — SCROLL TOGGLE
+      // ============================================================
       const island = document.getElementById('dynamicIslandNav');
       const toggle = document.getElementById('navToggle');
       let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollThreshold = 15;
+      const scrollThreshold = 20;
 
       window.addEventListener('scroll', function() {
         let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
         let scrollDelta = currentScrollTop - lastScrollTop;
+
         if (Math.abs(scrollDelta) > scrollThreshold) {
-          if (scrollDelta > 0) island.classList.remove('expanded');
-          else island.classList.add('expanded');
+          if (scrollDelta > 0) {
+            // Scrolling down → collapse
+            island.classList.remove('expanded');
+          } else {
+            // Scrolling up → expand
+            island.classList.add('expanded');
+          }
           lastScrollTop = currentScrollTop;
         }
       });
 
+      // ============================================================
+      // 2. DYNAMIC ISLAND — MANUAL TOGGLE (Chevron)
+      // ============================================================
       toggle.addEventListener('click', function(e) {
         e.stopPropagation();
         island.classList.toggle('expanded');
+        // Reset scroll tracking to prevent immediate override
         lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
       });
 
+      // Click outside → collapse
       document.addEventListener('click', function(e) {
         if (!island.contains(e.target)) {
           island.classList.remove('expanded');
@@ -1460,23 +1446,80 @@
         }
       });
 
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          island.classList.remove('expanded');
+      // ============================================================
+      // 3. NAVIGATION — SMOOTH SCROLL & ACTIVE STATE
+      // ============================================================
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            // Smooth scroll to target
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Update URL hash
+            history.pushState(null, null, targetId);
+
+            // Update active state on nav links
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+
+            // Collapse the dynamic island on mobile
+            island.classList.remove('expanded');
+            lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          }
         });
       });
 
-      // ===== FAQ TOGGLE =====
+      // ============================================================
+      // 4. SCROLL SPY — Intersection Observer
+      // ============================================================
+      const sections = document.querySelectorAll('section[id]');
+
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+
+            // Update URL hash without triggering scroll
+            if (window.location.hash !== `#${id}`) {
+              history.pushState(null, null, `#${id}`);
+            }
+
+            // Update active class on nav links
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+
+      sections.forEach(section => sectionObserver.observe(section));
+
+      // ============================================================
+      // 5. FAQ TOGGLE
+      // ============================================================
       document.querySelectorAll('.faq-item .question').forEach(q => {
         q.addEventListener('click', function() {
           this.parentElement.classList.toggle('active');
         });
       });
 
-      // ===== SCROLL ANIMATIONS (Intersection Observer) =====
+      // ============================================================
+      // 6. SCROLL ANIMATIONS (Intersection Observer)
+      // ============================================================
       const fadeElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .stagger-children');
 
-      const observer = new IntersectionObserver((entries) => {
+      const animObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
@@ -1495,9 +1538,17 @@
         rootMargin: '0px 0px -40px 0px'
       });
 
-      fadeElements.forEach(el => observer.observe(el));
+      fadeElements.forEach(el => animObserver.observe(el));
 
-      // ===== INITIAL VISIBILITY CHECK =====
+      // ============================================================
+      // 7. INITIAL LOAD
+      // ============================================================
+      // Set default hash if none
+      if (!window.location.hash || window.location.hash === '#') {
+        history.replaceState(null, null, '#home');
+      }
+
+      // Trigger initial visibility check for animations
       setTimeout(() => {
         fadeElements.forEach(el => {
           const rect = el.getBoundingClientRect();
@@ -1513,19 +1564,7 @@
             }
           }
         });
-      }, 200);
-
-      // ===== SMOOTH SCROLL =====
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            e.preventDefault();
-            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
-            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-          }
-        });
-      });
+      }, 300);
 
     })();
   </script>
