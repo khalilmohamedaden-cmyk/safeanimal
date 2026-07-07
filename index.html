@@ -111,8 +111,6 @@
     .stagger-children.visible>*:nth-child(2) { transition-delay: 0.15s; }
     .stagger-children.visible>*:nth-child(3) { transition-delay: 0.25s; }
     .stagger-children.visible>*:nth-child(4) { transition-delay: 0.35s; }
-    .stagger-children.visible>*:nth-child(5) { transition-delay: 0.45s; }
-    .stagger-children.visible>*:nth-child(6) { transition-delay: 0.55s; }
 
     .stagger-children.visible>* {
       opacity: 1;
@@ -175,7 +173,7 @@
     }
 
     .dynamic-island-nav.expanded .nav-links {
-      max-width: 700px;
+      max-width: 600px;
       opacity: 1;
       margin-left: 0.6rem;
       pointer-events: auto;
@@ -658,138 +656,6 @@
       color: #0b2f2d;
     }
 
-    /* ======================================== */
-    /* ===== INTERACTIVE FEED PLAYGROUND ===== */
-    /* ======================================== */
-    .playground-section {
-      background: #0d1f1c;
-      color: #e4f3ee;
-      padding: 0;
-      overflow: hidden;
-      position: relative;
-    }
-    .playground-section .section-title {
-      color: white;
-    }
-    .playground-section .section-sub {
-      color: rgba(255, 255, 255, 0.6);
-    }
-    .playground-section .badge {
-      background: rgba(92, 214, 189, 0.15);
-      color: #5cd6bd;
-    }
-
-    .playground-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      min-height: 500px;
-      padding: 4rem 0;
-      gap: 2rem;
-    }
-    .playground-text {
-      flex: 1;
-      min-width: 250px;
-      z-index: 2;
-    }
-    .playground-canvas-wrap {
-      flex: 1.5;
-      min-width: 300px;
-      position: relative;
-      z-index: 2;
-      border-radius: 40px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      background: #0a1614;
-      height: 400px;
-    }
-    #playgroundCanvas {
-      display: block;
-      width: 100%;
-      height: 100%;
-      cursor: crosshair;
-    }
-
-    .playground-controls {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .playground-controls label {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.9rem;
-    }
-    .playground-controls input[type="range"] {
-      width: 100%;
-      max-width: 300px;
-      height: 4px;
-      -webkit-appearance: none;
-      background: #2b8c78;
-      border-radius: 4px;
-      outline: none;
-    }
-    .playground-controls input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #5cd6bd;
-      cursor: pointer;
-      box-shadow: 0 0 12px rgba(92, 214, 189, 0.4);
-    }
-    .playground-controls .value-display {
-      color: #5cd6bd;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .playground-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.5rem;
-    }
-    .playground-buttons button {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.8);
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .playground-buttons button:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: scale(0.96);
-    }
-    .playground-buttons button.mix-btn {
-      background: #5cd6bd;
-      color: #0b1a1f;
-      border-color: #5cd6bd;
-    }
-    .playground-buttons button.mix-btn:hover {
-      background: #7ae0cc;
-    }
-    .playground-buttons button.clear-btn {
-      background: rgba(255, 70, 70, 0.15);
-      border-color: rgba(255, 70, 70, 0.2);
-      color: #ff6b6b;
-    }
-    .playground-buttons button.clear-btn:hover {
-      background: rgba(255, 70, 70, 0.25);
-    }
-
     /* ===== TESTIMONIALS ===== */
     .testimonial-grid {
       display: grid;
@@ -1109,13 +975,6 @@
       .hero-float-3 {
         display: none;
       }
-      .playground-wrapper {
-        flex-direction: column;
-      }
-      .playground-canvas-wrap {
-        height: 300px;
-        width: 100%;
-      }
     }
 
     @media (max-width: 480px) {
@@ -1172,13 +1031,6 @@
       .who-images img {
         height: 80px;
       }
-      .playground-canvas-wrap {
-        height: 200px;
-      }
-      .playground-buttons button {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.8rem;
-      }
     }
   </style>
 </head>
@@ -1192,10 +1044,9 @@
     </div>
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
-      <a href="#about">About</a>
+      <a href="#about">About Us</a>
       <a href="#services">Services</a>
-      <a href="#playground">Playground</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">Contact Us</a>
     </div>
     <div class="actions" id="actionButtons">
       <button class="btn-login"><i class="fas fa-phone"></i> Call</button>
@@ -1211,7 +1062,7 @@
   <!-- ===== MAIN CONTENT ===== -->
   <main>
 
-    <!-- HERO -->
+    <!-- HOME -->
     <section class="hero" id="home">
       <div class="hero-float-1" id="float1"><i class="fas fa-seedling"></i></div>
       <div class="hero-float-2" id="float2"><i class="fas fa-cow"></i></div>
@@ -1240,7 +1091,7 @@
       </div>
     </section>
 
-    <!-- WHO WE ARE -->
+    <!-- ABOUT US -->
     <section id="about" class="section">
       <div class="container">
         <div class="who-grid">
@@ -1285,7 +1136,7 @@
         </div>
         <div class="services-grid stagger-children" id="servicesGrid">
           <div class="service-card">
-            <div class="icon-wrap"><i class="fas fa-cow"></i></div>
+            <div class="icon-wrap"><i class="fas fa-seedling"></i></div>
             <h3>Livestock Feed</h3>
             <p>Tailored feed solutions for all livestock species.</p>
             <a href="#" class="read-more">Read More →</a>
@@ -1307,45 +1158,6 @@
             <h3>Urea-molasses Multi-nutrient Block</h3>
             <p>High-energy blocks for ruminant animals.</p>
             <a href="#" class="read-more">Read More →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- ===== INTERACTIVE FEED PLAYGROUND (HELLA COOL) ===== -->
-    <!-- ============================================================ -->
-    <section id="playground" class="playground-section section">
-      <div class="container">
-        <div class="playground-wrapper">
-          <div class="playground-text fade-in-left">
-            <span class="badge">🧪 FEED LAB</span>
-            <h2 class="section-title">Nutrient <span style="color: #5cd6bd;">Mixing Chamber</span></h2>
-            <p class="section-sub" style="color: rgba(255,255,255,0.7);">
-              Move your mouse to stir the ingredients. Add different nutrients and watch the perfect blend come to life.
-            </p>
-            <div class="playground-controls">
-              <label>
-                <span style="display: flex; justify-content: space-between;">
-                  <span><i class="fas fa-tachometer-alt"></i> Mixing Speed</span>
-                  <span class="value-display" id="speedValue">75%</span>
-                </span>
-                <input type="range" id="mixSpeed" min="0" max="100" value="75" />
-              </label>
-              <div class="playground-buttons">
-                <button class="mix-btn" id="mixBtn"><i class="fas fa-tsunami"></i> MIX NOW!</button>
-                <button id="addGrains"><i class="fas fa-seedling"></i> Add Grains</button>
-                <button id="addProtein"><i class="fas fa-egg"></i> Add Protein</button>
-                <button id="addVitamins"><i class="fas fa-leaf"></i> Add Vitamins</button>
-                <button class="clear-btn" id="clearBtn"><i class="fas fa-trash"></i> Clear</button>
-              </div>
-              <div style="color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 0.3rem;">
-                <span id="particleCounter">0</span> nutrients in the mix
-              </div>
-            </div>
-          </div>
-          <div class="playground-canvas-wrap fade-in-right">
-            <canvas id="playgroundCanvas"></canvas>
           </div>
         </div>
       </div>
@@ -1533,7 +1345,7 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CONTACT US -->
     <section id="contact" style="padding: 2rem 0 4rem;">
       <div class="container">
         <div class="cta-banner fade-in">
@@ -1570,8 +1382,7 @@
           <a href="#home">Home</a>
           <a href="#about">About Us</a>
           <a href="#services">Our Services</a>
-          <a href="#playground">Playground</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact">Contact Us</a>
         </div>
         <div>
           <h4>Contact Info</h4>
@@ -1581,7 +1392,6 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <!-- UPDATED FOOTER: Replaced Sky Tech Innovation with ÆROFLUX -->
         <span>Copyright © 2026 Sufi Animal Feed | Powered by <strong>ÆROFLUX</strong></span>
         <div style="display: flex; gap: 1.5rem;">
           <a href="#" style="color: #1f4944; text-decoration: none;">Privacy</a>
@@ -1592,7 +1402,7 @@
   </footer>
 
   <!-- ============================================================ -->
-  <!-- ===== SCRIPTS: SCROLL ANIMATIONS + PLAYGROUND ===== -->
+  <!-- ===== SCRIPTS ===== -->
   <!-- ============================================================ -->
   <script>
     (function() {
@@ -1640,237 +1450,7 @@
         });
       });
 
-      // ============================================================
-      // ===== INTERACTIVE FEED PLAYGROUND (HELLA COOL) =====
-      // ============================================================
-      const canvas = document.getElementById('playgroundCanvas');
-      const ctx = canvas.getContext('2d');
-      const speedSlider = document.getElementById('mixSpeed');
-      const speedDisplay = document.getElementById('speedValue');
-      const particleCounter = document.getElementById('particleCounter');
-
-      let width, height;
-      let particles = [];
-      let mouseX = -1000,
-        mouseY = -1000;
-      let mixForce = 0; // 0 to 1, decays over time
-
-      // Nutrient types
-      const NUTRIENT_TYPES = [
-        { name: 'Grain', color: '#F5A623', size: 5, glow: 'rgba(245, 166, 35, 0.3)' },
-        { name: 'Protein', color: '#4A90E2', size: 4, glow: 'rgba(74, 144, 226, 0.3)' },
-        { name: 'Vitamins', color: '#7ED321', size: 3, glow: 'rgba(126, 211, 33, 0.3)' },
-        { name: 'Mineral', color: '#F8E71C', size: 3.5, glow: 'rgba(248, 231, 28, 0.3)' }
-      ];
-
-      function resizeCanvas() {
-        const rect = canvas.parentElement.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
-        width = canvas.width;
-        height = canvas.height;
-        if (particles.length === 0) initParticles(80);
-      }
-
-      function initParticles(count) {
-        for (let i = 0; i < count; i++) {
-          const type = NUTRIENT_TYPES[Math.floor(Math.random() * NUTRIENT_TYPES.length)];
-          particles.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            type: type,
-            radius: type.size + Math.random() * 2,
-            phase: Math.random() * Math.PI * 2
-          });
-        }
-        updateCounter();
-      }
-
-      function addParticles(typeIndex, count) {
-        const type = NUTRIENT_TYPES[typeIndex];
-        for (let i = 0; i < count; i++) {
-          const edge = Math.floor(Math.random() * 4);
-          let x, y;
-          if (edge === 0) { x = Math.random() * width;
-            y = -10; } else if (edge === 1) { x = width + 10;
-            y = Math.random() * height; } else if (edge === 2) { x = Math.random() * width;
-            y = height + 10; } else { x = -10;
-            y = Math.random() * height; }
-          particles.push({
-            x: x,
-            y: y,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            type: type,
-            radius: type.size + Math.random() * 2,
-            phase: Math.random() * Math.PI * 2
-          });
-        }
-        updateCounter();
-      }
-
-      function clearParticles() {
-        particles = [];
-        initParticles(40);
-        mixForce = 0;
-      }
-
-      function updateCounter() {
-        particleCounter.textContent = particles.length;
-      }
-
-      function drawParticles(speed) {
-        ctx.clearRect(0, 0, width, height);
-
-        // Draw drum background
-        const grad = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, width * 0.6);
-        grad.addColorStop(0, '#1a2f2a');
-        grad.addColorStop(1, '#0a1614');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, width, height);
-
-        // Draw subtle grid
-        ctx.strokeStyle = 'rgba(255,255,255,0.02)';
-        ctx.lineWidth = 1;
-        for (let i = 0; i < width; i += 30) {
-          ctx.beginPath();
-          ctx.moveTo(i, 0);
-          ctx.lineTo(i, height);
-          ctx.stroke();
-        }
-        for (let i = 0; i < height; i += 30) {
-          ctx.beginPath();
-          ctx.moveTo(0, i);
-          ctx.lineTo(width, i);
-          ctx.stroke();
-        }
-
-        // Center mixing glow
-        const centerGlow = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, 180);
-        centerGlow.addColorStop(0, `rgba(92, 214, 189, ${0.05 + mixForce * 0.1})`);
-        centerGlow.addColorStop(1, 'rgba(92, 214, 189, 0)');
-        ctx.fillStyle = centerGlow;
-        ctx.fillRect(0, 0, width, height);
-
-        const cx = mouseX !== -1000 ? mouseX : width / 2;
-        const cy = mouseY !== -1000 ? mouseY : height / 2;
-        const baseSpeed = 0.02 * (speed / 50);
-        const swirlStrength = 0.6 + speed / 150;
-
-        // Decay mix force
-        if (mixForce > 0) mixForce *= 0.995;
-        if (mixForce < 0.001) mixForce = 0;
-
-        particles.forEach(p => {
-          const dx = cx - p.x;
-          const dy = cy - p.y;
-          const dist = Math.sqrt(dx * dx + dy * dy) + 1;
-          const force = Math.min(1, 150 / dist);
-
-          const angle = Math.atan2(dy, dx);
-
-          // Mix force adds extra swirl
-          const extraSwirl = mixForce * 2.5;
-          const swirl = (0.6 + speed / 150) + extraSwirl;
-
-          p.vx += (Math.cos(angle) * force * 0.08 + Math.sin(angle + Math.PI / 2) * force * 0.06 * swirl) * baseSpeed * 1.5;
-          p.vy += (Math.sin(angle) * force * 0.08 - Math.cos(angle + Math.PI / 2) * force * 0.06 * swirl) * baseSpeed * 1.5;
-
-          // Random jitter (brownian motion)
-          p.vx += (Math.random() - 0.5) * 0.02 * (speed / 50);
-          p.vy += (Math.random() - 0.5) * 0.02 * (speed / 50);
-
-          p.vx *= 0.96;
-          p.vy *= 0.96;
-
-          p.x += p.vx;
-          p.y += p.vy;
-
-          // Wrap around
-          if (p.x < -20) p.x = width + 20;
-          if (p.x > width + 20) p.x = -20;
-          if (p.y < -20) p.y = height + 20;
-          if (p.y > height + 20) p.y = -20;
-
-          // Draw particle with glow
-          ctx.shadowColor = p.type.glow;
-          ctx.shadowBlur = 18;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = p.type.color;
-          ctx.fill();
-          ctx.shadowBlur = 0;
-
-          // Inner highlight
-          ctx.beginPath();
-          ctx.arc(p.x - p.radius * 0.2, p.y - p.radius * 0.2, p.radius * 0.3, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(255,255,255,0.3)';
-          ctx.fill();
-        });
-
-        // Draw mouse attractor ring
-        if (mouseX !== -1000) {
-          ctx.beginPath();
-          ctx.arc(cx, cy, 20 + speed * 0.15, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(92, 214, 189, ${0.1 + mixForce * 0.15})`;
-          ctx.lineWidth = 2;
-          ctx.stroke();
-        }
-
-        // Mix force indicator
-        if (mixForce > 0.01) {
-          ctx.beginPath();
-          ctx.arc(width / 2, height / 2, 60 + mixForce * 80, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(92, 214, 189, ${mixForce * 0.2})`;
-          ctx.lineWidth = 3;
-          ctx.stroke();
-        }
-
-        updateCounter();
-      }
-
-      function animatePlayground() {
-        const speed = parseFloat(speedSlider.value);
-        speedDisplay.textContent = Math.round(speed) + '%';
-        drawParticles(speed);
-        requestAnimationFrame(animatePlayground);
-      }
-
-      // ===== CANVAS EVENTS =====
-      canvas.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
-      });
-
-      canvas.addEventListener('mouseleave', () => {
-        mouseX = -1000;
-        mouseY = -1000;
-      });
-
-      // ===== BUTTON CONTROLS =====
-      document.getElementById('mixBtn').addEventListener('click', () => {
-        mixForce = 1;
-        // Also push particles outward slightly for dramatic effect
-        particles.forEach(p => {
-          const dx = p.x - width / 2;
-          const dy = p.y - height / 2;
-          const dist = Math.sqrt(dx * dx + dy * dy) + 1;
-          p.vx += (dx / dist) * 2;
-          p.vy += (dy / dist) * 2;
-        });
-      });
-
-      document.getElementById('addGrains').addEventListener('click', () => addParticles(0, 30));
-      document.getElementById('addProtein').addEventListener('click', () => addParticles(1, 25));
-      document.getElementById('addVitamins').addEventListener('click', () => addParticles(2, 20));
-      document.getElementById('clearBtn').addEventListener('click', clearParticles);
-
-      // ============================================================
       // ===== SCROLL ANIMATIONS (Intersection Observer) =====
-      // ============================================================
       const fadeElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .stagger-children');
 
       const observer = new IntersectionObserver((entries) => {
@@ -1894,32 +1474,35 @@
 
       fadeElements.forEach(el => observer.observe(el));
 
-      // ===== INIT =====
-      function init() {
-        resizeCanvas();
-        animatePlayground();
-
-        // Trigger initial animations if visible
-        setTimeout(() => {
-          fadeElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-              el.classList.add('visible');
-              if (el.classList.contains('stagger-children')) {
-                el.querySelectorAll('*').forEach(child => {
-                  if (child.parentElement === el) {
-                    child.style.opacity = '1';
-                    child.style.transform = 'translateY(0)';
-                  }
-                });
-              }
+      // ===== INITIAL VISIBILITY CHECK =====
+      setTimeout(() => {
+        fadeElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('visible');
+            if (el.classList.contains('stagger-children')) {
+              el.querySelectorAll('*').forEach(child => {
+                if (child.parentElement === el) {
+                  child.style.opacity = '1';
+                  child.style.transform = 'translateY(0)';
+                }
+              });
             }
-          });
-        }, 200);
-      }
+          }
+        });
+      }, 200);
 
-      window.addEventListener('resize', resizeCanvas);
-      document.addEventListener('DOMContentLoaded', init);
+      // ===== SMOOTH SCROLL =====
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+          }
+        });
+      });
 
     })();
   </script>
