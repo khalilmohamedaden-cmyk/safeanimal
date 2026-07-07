@@ -107,10 +107,18 @@
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .stagger-children.visible>*:nth-child(1) { transition-delay: 0.05s; }
-    .stagger-children.visible>*:nth-child(2) { transition-delay: 0.15s; }
-    .stagger-children.visible>*:nth-child(3) { transition-delay: 0.25s; }
-    .stagger-children.visible>*:nth-child(4) { transition-delay: 0.35s; }
+    .stagger-children.visible>*:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+    .stagger-children.visible>*:nth-child(2) {
+      transition-delay: 0.15s;
+    }
+    .stagger-children.visible>*:nth-child(3) {
+      transition-delay: 0.25s;
+    }
+    .stagger-children.visible>*:nth-child(4) {
+      transition-delay: 0.35s;
+    }
 
     .stagger-children.visible>* {
       opacity: 1;
@@ -152,11 +160,23 @@
       white-space: nowrap;
       transition: opacity 0.3s;
       cursor: pointer;
+      text-decoration: none;
     }
 
-    .dynamic-island-nav .brand i {
-      color: #5cd6bd;
-      font-size: 1.3rem;
+    .dynamic-island-nav .brand .logo-img {
+      height: 36px;
+      width: auto;
+      border-radius: 8px;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: block;
+      object-fit: contain;
+    }
+
+    /* ===== LOGO HOVER EFFECT (Chrome) ===== */
+    .dynamic-island-nav .brand .logo-img:hover {
+      transform: scale(1.12) rotate(-3deg);
+      filter: drop-shadow(0 0 24px rgba(92, 214, 189, 0.5));
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .dynamic-island-nav .nav-links {
@@ -467,16 +487,16 @@
       will-change: transform;
     }
 
-    /* ===== WHO WE ARE with image grid ===== */
+    /* ===== WHO WE ARE — Single Big Vertical Image ===== */
     .who-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 3rem;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .who-content {
-      flex: 2;
+      flex: 1.2;
       min-width: 280px;
     }
 
@@ -500,28 +520,33 @@
       width: 1.8rem;
     }
 
-    .who-images {
-      flex: 1.2;
-      min-width: 240px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.8rem;
-    }
-
-    .who-images img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    .who-image-wrap {
+      flex: 0 0 280px;
+      max-width: 320px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
       border: 1px solid #eaf1ed;
-      transition: 0.25s;
+      transition: all 0.4s ease;
       background: #d4e3dd;
+      margin: 0 auto;
     }
 
-    .who-images img:hover {
+    .who-image-wrap:hover {
       transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 16px 48px rgba(26, 92, 81, 0.12);
+    }
+
+    .who-image-wrap img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .who-image-wrap:hover img {
+      transform: scale(1.04);
     }
 
     /* ===== SERVICES GRID ===== */
@@ -918,7 +943,7 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .dynamic-island-nav .brand span {
+      .dynamic-island-nav .brand .brand-text {
         display: none;
       }
       .dynamic-island-nav {
@@ -934,6 +959,9 @@
         font-size: 0.65rem;
         padding: 0.25rem 0.7rem;
       }
+      .dynamic-island-nav .brand .logo-img {
+        height: 28px;
+      }
       .hero-content h1 {
         font-size: 2.6rem;
       }
@@ -948,9 +976,12 @@
       }
       .who-grid {
         flex-direction: column;
+        align-items: center;
       }
-      .who-images {
-        grid-template-columns: 1fr 1fr;
+      .who-image-wrap {
+        flex: 0 0 auto;
+        max-width: 280px;
+        width: 100%;
       }
       .hero-stats {
         gap: 1.5rem;
@@ -989,8 +1020,8 @@
       .dynamic-island-nav .brand {
         padding-left: 0.2rem;
       }
-      .dynamic-island-nav .brand i {
-        font-size: 1rem;
+      .dynamic-island-nav .brand .logo-img {
+        height: 24px;
       }
       .dynamic-island-nav .toggle-icon {
         font-size: 0.9rem;
@@ -1024,12 +1055,8 @@
         font-size: 0.75rem;
         padding: 0.2rem 0.8rem;
       }
-      .who-images {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.5rem;
-      }
-      .who-images img {
-        height: 80px;
+      .who-image-wrap {
+        max-width: 220px;
       }
     }
   </style>
@@ -1038,9 +1065,8 @@
 
   <!-- ===== DYNAMIC ISLAND NAV ===== -->
   <nav class="dynamic-island-nav expanded" id="dynamicIslandNav">
-    <div class="brand">
-      <i class="fas fa-seedling"></i>
-      <span>Sufi Feed</span>
+    <div class="brand" id="brandLogo">
+      <img src="image5.jpeg" alt="Sufi Feed Logo" class="logo-img" id="logoImage" />
     </div>
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
@@ -1091,7 +1117,7 @@
       </div>
     </section>
 
-    <!-- ABOUT US -->
+    <!-- ABOUT US — Single Big Vertical Image -->
     <section id="about" class="section">
       <div class="container">
         <div class="who-grid">
@@ -1116,11 +1142,8 @@
             </ul>
             <a href="#" class="btn" style="margin-top: 1.2rem;">Read More</a>
           </div>
-          <div class="who-images fade-in-right">
-            <img src="image1.jpeg" alt="Feed production" />
-            <img src="image2.jpeg" alt="Quality control" />
-            <img src="image3.jpeg" alt="Livestock feeding" />
-            <img src="image4.jpeg" alt="Farm visit" />
+          <div class="who-image-wrap fade-in-right">
+            <img src="image1.jpeg" alt="Feed production facility" />
           </div>
         </div>
       </div>
